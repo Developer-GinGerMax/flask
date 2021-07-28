@@ -2,9 +2,9 @@
 국어 kor, 영어 eng, 수학 math 를 입력받아서
 평균점수를 통해 A ~ F 학점을 출력하시오
 '''
-
 class Grade(object):
-    def __init__(self,kor,eng,math):
+
+    def __init__(self, kor, eng, math):
         self.kor = kor
         self.eng = eng
         self.math = math
@@ -17,9 +17,9 @@ class Grade(object):
 
     @staticmethod
     def main():
-        kor = int(input('KOR SCORE : '))
-        eng = int(input('ENG SCORE : '))
-        math = int(input('MATH SCORE : '))
+        kor = int(input('Korean: '))
+        eng = int(input('English: '))
+        math = int(input('Math: '))
         grade = Grade(kor, eng, math)
         avg = grade.avg()
         if avg >= 90:
@@ -37,3 +37,5 @@ class Grade(object):
         print(f'{result}')
 
 Grade.main()
+
+

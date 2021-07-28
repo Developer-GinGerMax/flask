@@ -1,5 +1,5 @@
-from titanic.model.dataset import Dataset
-from titanic.model.service import Service
+from titanic.models.dataset import Dataset
+from titanic.models.service import Service
 
 
 class View(object):
@@ -11,7 +11,7 @@ class View(object):
         this = self.preprocessing(train,test)
         print(f'The Type of This is {type(this.train)}')
         print(f'The head of Train is \n {this.train.head(2)}')
-        print(f'The head of Train is \n {this.test.head(2)}')
+        print(f'The head of Test is \n {this.test.head(2)}')
 
     def preprocessing(self, train, test) -> object:
         service = self.service

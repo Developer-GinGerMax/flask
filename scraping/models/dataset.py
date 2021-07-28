@@ -8,26 +8,26 @@ class Dataset(object):
     bugs: object
     melon: object
 
+
     @property
     def context(self) -> str: return self._context
-
     @context.setter
     def context(self, context): self._context = context
 
     @property
-    def fname(self) -> str: return  self._fname
+    def fname(self) -> str: return self._fname
 
     @fname.setter
     def fname(self, fname): self._fname = fname
 
     @property
-    def bugs(self) -> object: return  self._bugs
+    def bugs(self) -> str: return self._bugs
 
-    @train.setter
+    @bugs.setter
     def bugs(self, bugs): self._bugs = bugs
 
     @property
-    def melon(self) -> object: return  self._melon
+    def melon(self) -> str: return self._melon
 
-    @test.setter
+    @melon.setter
     def melon(self, melon): self._melon = melon

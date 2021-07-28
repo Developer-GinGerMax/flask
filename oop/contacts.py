@@ -1,51 +1,50 @@
-'''
-아래의 요소를 포함한 주소록 만들기
-name email phone address
-'''
+"""
+name, phone, email, address
+"""
 
 
 class Contacts(object):
-    def __init__(self,name,email,phone,address):
+    def __init__(self, name, phone, email, address):
         self.name = name
-        self.email = email
         self.phone = phone
+        self.email = email
         self.address = address
 
-
     def to_string(self):
-        print(f'이름은{self.name} 이메일 주소는 {self.email} 전화번호는 {self.phone} 주소는 {self.address} 입니다.')
+        print(f'{self.name}, {self.phone}, {self.email}, {self.address}')
 
 
-def set_contact():
-    return Contacts(input('name') , input('email') , input('phone') , input('address'))
+def set_contact() -> object:
+    return Contacts(input('name'),input('phone'),input('email'),input('address'))
 
 
-def get_contact(ls):
+def get_contacts(ls):
     for i in ls:
-        print(f'이름은{i.name} 이메일 주소는 {i.email} 전화번호는 {i.phone} 주소는 {i.address} 입니다.')
+        i.to_string()
 
 
 def del_contact(ls, name):
-    for i in enumerate(ls):
-        ls.remove(i.name)
+    for i, j in enumerate(ls):
+        if name == j.name:
+            del ls[i]
 
 
-def menu_s(ls):
+def print_menu(ls) -> int:
+    # return '\t'.join(ls)
     t = ''
     for i, j in enumerate(ls):
         t += str(i)+'-'+j+'\t'
     return int(input(t))
 
-
 def main():
     ls = []
     while 1:
-        menu = menu_s(['EXIT', 'ADD', 'PRINT', 'DELETE'])
+        menu = print_menu(['exit', 'add', 'print', 'delete'])
         if menu == 1:
             t = set_contact()
             ls.append(t)
         elif menu == 2:
-            get_contact(ls)
+            get_contacts(ls)
         elif menu == 3:
             del_contact(ls, input('Del Name'))
         else:
@@ -53,6 +52,7 @@ def main():
 
 
 if __name__ == '__main__':
-    #ls = ['EXIT' , 'ADD' , 'PRINT' , 'DELETE' , 'UPDATA' , 'DEBUG']
-    #print(menu(ls))
+    # ls = ['0-exit', '1-add', '2-print', '3-delete']
+    # ls2 = ['exit', 'add', 'print', 'delete']
+    # print(menu(ls2))
     main()
